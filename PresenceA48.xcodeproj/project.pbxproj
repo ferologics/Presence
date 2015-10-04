@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		33B70E221BC09DC8006414E9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B70E211BC09DC8006414E9 /* MainViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		33B70E281BC0A12B006414E9 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B70E271BC0A12B006414E9 /* UserTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		33FAB0FD1BC0BCAE00D4AC17 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAB0FC1BC0BCAE00D4AC17 /* UserViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		0A6B756148A4520FE049D6CE /* Pods_PresenceA48.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A9ADC451F501ADB63827CD /* Pods_PresenceA48.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		148CD5051BC0A03D00386C17 /* ParseLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148CD5041BC0A03D00386C17 /* ParseLoginHelper.swift */; };
 		14A136381BC0A843000E708D /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A136371BC0A843000E708D /* ErrorHandling.swift */; };
+		33B70E221BC09DC8006414E9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B70E211BC09DC8006414E9 /* MainViewController.swift */; };
+		33B70E281BC0A12B006414E9 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B70E271BC0A12B006414E9 /* UserTableViewCell.swift */; };
+		33FAB0FD1BC0BCAE00D4AC17 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAB0FC1BC0BCAE00D4AC17 /* UserViewController.swift */; };
 		AECF16611B0E0B1000CC83B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECF16601B0E0B1000CC83B2 /* AppDelegate.swift */; };
 		AECF16661B0E0B1000CC83B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AECF16641B0E0B1000CC83B2 /* Main.storyboard */; };
 		AECF16681B0E0B1000CC83B2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AECF16671B0E0B1000CC83B2 /* Images.xcassets */; };
@@ -31,14 +31,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		148CD5041BC0A03D00386C17 /* ParseLoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseLoginHelper.swift; sourceTree = "<group>"; };
+		14A136371BC0A843000E708D /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		33B70E211BC09DC8006414E9 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		33B70E271BC0A12B006414E9 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		33FAB0FC1BC0BCAE00D4AC17 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
-		148CD5041BC0A03D00386C17 /* ParseLoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseLoginHelper.swift; sourceTree = "<group>"; };
-		14A136371BC0A843000E708D /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		7D628186D6D94FAD269121A3 /* Pods-PresenceA48.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresenceA48.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PresenceA48/Pods-PresenceA48.debug.xcconfig"; sourceTree = "<group>"; };
 		A7EF836C9605459DD356C969 /* Pods-PresenceA48.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresenceA48.release.xcconfig"; path = "Pods/Target Support Files/Pods-PresenceA48/Pods-PresenceA48.release.xcconfig"; sourceTree = "<group>"; };
-		AECA38811B97147C009A9324 /* EstimoteSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EstimoteSDK.framework; sourceTree = "<group>"; };
 		AECF165B1B0E0B1000CC83B2 /* PresenceA48.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PresenceA48.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AECF165F1B0E0B1000CC83B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AECF16601B0E0B1000CC83B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -48,7 +47,6 @@
 		AECF16701B0E0B1000CC83B2 /* PresenceA48Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PresenceA48Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AECF16751B0E0B1000CC83B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AECF16761B0E0B1000CC83B2 /* PresenceA48Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenceA48Tests.swift; sourceTree = "<group>"; };
-		AECF16801B0E0B2F00CC83B2 /* ObjCBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCBridge.h; sourceTree = "<group>"; };
 		B8A9ADC451F501ADB63827CD /* Pods_PresenceA48.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PresenceA48.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -71,15 +69,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A74DBB5D6A8A7392FA3D3133 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7D628186D6D94FAD269121A3 /* Pods-PresenceA48.debug.xcconfig */,
-				A7EF836C9605459DD356C969 /* Pods-PresenceA48.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		33B70E201BC09DA4006414E9 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,13 +86,13 @@
 			path = "Table Cells";
 			sourceTree = "<group>";
 		};
-		AECA38801B97147C009A9324 /* Estimote */ = {
+		A74DBB5D6A8A7392FA3D3133 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				AECA38811B97147C009A9324 /* EstimoteSDK.framework */,
-				AECF16801B0E0B2F00CC83B2 /* ObjCBridge.h */,
+				7D628186D6D94FAD269121A3 /* Pods-PresenceA48.debug.xcconfig */,
+				A7EF836C9605459DD356C969 /* Pods-PresenceA48.release.xcconfig */,
 			);
-			path = Estimote;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		AECF16521B0E0B1000CC83B2 = {
@@ -138,7 +127,6 @@
 				AECF16691B0E0B1000CC83B2 /* LaunchScreen.xib */,
 				AECF16671B0E0B1000CC83B2 /* Images.xcassets */,
 				AECF165E1B0E0B1000CC83B2 /* Supporting Files */,
-				AECA38801B97147C009A9324 /* Estimote */,
 			);
 			path = PresenceA48;
 			sourceTree = "<group>";

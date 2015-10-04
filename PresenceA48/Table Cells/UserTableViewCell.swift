@@ -8,7 +8,8 @@
 
 import UIKit
 
-class UserTableViewCell: UITableViewCell {
+class UserTableViewCell: UITableViewCell
+{
 
     // MARK: - Properties
     @IBOutlet weak var profilePicture: UIImageView!
@@ -16,25 +17,20 @@ class UserTableViewCell: UITableViewCell {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var indicator: UIImageView!
     
-    
-    
     // MARK: - Methods
     
-    override func awakeFromNib() {
+    override func awakeFromNib()
+    {
         super.awakeFromNib()
         
         // set selection color for cell
         let blueColorView = UIView()
         blueColorView.backgroundColor = UIColor(red: 72/255, green: 178/255, blue: 232/255, alpha: 1.0)
         selectedBackgroundView = blueColorView
-        
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(selected: Bool, animated: Bool)
+    {
         super.setSelected(selected, animated: animated)
-
-
-        
     }
-
 }

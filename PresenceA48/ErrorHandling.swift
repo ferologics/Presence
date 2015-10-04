@@ -14,7 +14,7 @@ class ErrorHanlding
     static func displayError(controller: UIViewController, error: NSError)
     {
         let alertController = UIAlertController(
-            title: "No access to the internet",
+            title: "Error",
             message: error.description,
             preferredStyle: UIAlertControllerStyle.Alert)
         

@@ -8,7 +8,8 @@
 
 import UIKit
 
-class UserViewController: UIViewController {
+class UserViewController: UIViewController
+{
 
     // MARK: - Properties
     
@@ -19,21 +20,21 @@ class UserViewController: UIViewController {
     
     // MARK: - Methods
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-
-        
-        
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Actions
     
-    @IBAction func backButtonTapped(sender: UIButton) {
+    @IBAction func backButtonTapped(sender: UIButton)
+    {
         
         dismissViewControllerAnimated(true, completion: nil)
         
