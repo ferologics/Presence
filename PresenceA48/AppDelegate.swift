@@ -6,18 +6,19 @@
 import UIKit
 import Parse
 import ParseUI
-import Bolts
+//import Bolts
 import FBSDKCoreKit
 import ParseFacebookUtilsV4
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
+class AppDelegate: UIResponder, UIApplicationDelegate
+{
     var window: UIWindow?
     var overlay : UIView?
     var parseLoginHelper: ParseLoginHelper!
     
-    override init() {
+    override init()
+    {
         super.init()
         
         parseLoginHelper = ParseLoginHelper {[unowned self] user, error in
@@ -31,10 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // 3
                 self.window?.rootViewController!.presentViewController(tabBarController, animated:true, completion:nil)
             }
-            else if let _ = error
-            {
-                ErrorHanlding.displayError((self.window?.inputViewController)!, error: error!)
-            }
+            else if let err = error { ErrorHanlding.displayError((self.window?.inputViewController)!, error: err) }
         }
     }
 
@@ -49,6 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("wIP2XuICQ0XllXuJyCTccLVtyQvdBcqrKCdQnnOD",
             clientKey: "If47RIuAnNCHbVrVORfzkOq2yrAdNdTw8XgwYsib")
         
+        PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
+        
         // Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
@@ -59,14 +59,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if (user != nil)
         {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            startViewController = storyboard.instantiateViewControllerWithIdentifier("ViewController")
+            startViewController = storyboard.instantiateViewControllerWithIdentifier("View Controller")
         }
         else
         {
             let loginViewController = PFLogInViewController()
             loginViewController.fields = PFLogInFields.Facebook
             loginViewController.delegate = parseLoginHelper
-            loginViewController.signUpController?.delegate = parseLoginHelper
+//            loginViewController.signUpController?.delegate = parseLoginHelper
             loginViewController.facebookPermissions = ["email","public_profile"]
             
 //            var asdView = UIView()
@@ -92,11 +92,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         acl.setPublicReadAccess(true)
         PFACL.setDefaultACL(acl, withAccessForCurrentUser: true)
         
-        PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
-        
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool
+    {
+        return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+    }
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -112,6 +115,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
+        FBSDKAppEvents.activateApp()
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
 
