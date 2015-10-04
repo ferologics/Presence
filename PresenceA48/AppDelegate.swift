@@ -25,10 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate
             if let _ = user
             {
                 // if login was successful, display the TabBarController
-                // 2
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let tabBarController = storyboard.instantiateViewControllerWithIdentifier("MainViewController")
-                // 3
+
                 self.window?.rootViewController!.presentViewController(tabBarController, animated:true, completion:nil)
             }
             else if let err = error { ErrorHanlding.displayError((self.window?.inputViewController)!, error: err) }
@@ -37,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
     {
+        ESTConfig.setupAppID("presence-a48", andAppToken: "1f15bfbc76eb65f76fc96ffdef4eb7e8")
         
         // [Optional] Power your app with Local Datastore. For more info, go to
         // https://parse.com/docs/ios_guide#localdatastore/iOS
