@@ -25,8 +25,9 @@
 		14E6C03F1BC0811D007C6CF7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E6C03E1BC0811D007C6CF7 /* SystemConfiguration.framework */; };
 		14E6C0411BC0812A007C6CF7 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E6C0401BC0812A007C6CF7 /* libz.tbd */; };
 		14E6C0431BC08133007C6CF7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E6C0421BC08133007C6CF7 /* libsqlite3.tbd */; };
+		33B70E221BC09DC8006414E9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B70E211BC09DC8006414E9 /* MainViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		33B70E281BC0A12B006414E9 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B70E271BC0A12B006414E9 /* UserTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		AECF16611B0E0B1000CC83B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECF16601B0E0B1000CC83B2 /* AppDelegate.swift */; };
-		AECF16631B0E0B1000CC83B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECF16621B0E0B1000CC83B2 /* ViewController.swift */; };
 		AECF16661B0E0B1000CC83B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AECF16641B0E0B1000CC83B2 /* Main.storyboard */; };
 		AECF16681B0E0B1000CC83B2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AECF16671B0E0B1000CC83B2 /* Images.xcassets */; };
 		AECF166B1B0E0B1000CC83B2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AECF16691B0E0B1000CC83B2 /* LaunchScreen.xib */; };
@@ -62,11 +63,12 @@
 		14E6C03E1BC0811D007C6CF7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		14E6C0401BC0812A007C6CF7 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		14E6C0421BC08133007C6CF7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		33B70E211BC09DC8006414E9 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		33B70E271BC0A12B006414E9 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		AECA38811B97147C009A9324 /* EstimoteSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EstimoteSDK.framework; sourceTree = "<group>"; };
 		AECF165B1B0E0B1000CC83B2 /* PresenceA48.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PresenceA48.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AECF165F1B0E0B1000CC83B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AECF16601B0E0B1000CC83B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AECF16621B0E0B1000CC83B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AECF16651B0E0B1000CC83B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AECF16671B0E0B1000CC83B2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AECF166A1B0E0B1000CC83B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -137,6 +139,22 @@
 			name = Dependencies;
 			sourceTree = "<group>";
 		};
+		33B70E201BC09DA4006414E9 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				33B70E211BC09DC8006414E9 /* MainViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		33B70E261BC0A121006414E9 /* Table Cells */ = {
+			isa = PBXGroup;
+			children = (
+				33B70E271BC0A12B006414E9 /* UserTableViewCell.swift */,
+			);
+			path = "Table Cells";
+			sourceTree = "<group>";
+		};
 		AECA38801B97147C009A9324 /* Estimote */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,8 +186,9 @@
 		AECF165D1B0E0B1000CC83B2 /* PresenceA48 */ = {
 			isa = PBXGroup;
 			children = (
+				33B70E261BC0A121006414E9 /* Table Cells */,
+				33B70E201BC09DA4006414E9 /* View Controllers */,
 				AECF16601B0E0B1000CC83B2 /* AppDelegate.swift */,
-				AECF16621B0E0B1000CC83B2 /* ViewController.swift */,
 				AECF16641B0E0B1000CC83B2 /* Main.storyboard */,
 				AECF16691B0E0B1000CC83B2 /* LaunchScreen.xib */,
 				AECF16671B0E0B1000CC83B2 /* Images.xcassets */,
@@ -305,8 +324,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AECF16631B0E0B1000CC83B2 /* ViewController.swift in Sources */,
 				AECF16611B0E0B1000CC83B2 /* AppDelegate.swift in Sources */,
+				33B70E281BC0A12B006414E9 /* UserTableViewCell.swift in Sources */,
+				33B70E221BC09DC8006414E9 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
