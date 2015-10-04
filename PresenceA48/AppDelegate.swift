@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
                 // if login was successful, display the TabBarController
                 // 2
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let tabBarController = storyboard.instantiateViewControllerWithIdentifier("ViewController")
+                let tabBarController = storyboard.instantiateViewControllerWithIdentifier("MainViewController")
                 // 3
                 self.window?.rootViewController!.presentViewController(tabBarController, animated:true, completion:nil)
             }
@@ -59,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         if (user != nil)
         {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            startViewController = storyboard.instantiateViewControllerWithIdentifier("View Controller")
+            startViewController = storyboard.instantiateViewControllerWithIdentifier("MainViewController")
         }
         else
         {
