@@ -11,7 +11,6 @@
 		148CD5051BC0A03D00386C17 /* ParseLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148CD5041BC0A03D00386C17 /* ParseLoginHelper.swift */; };
 		14A136381BC0A843000E708D /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A136371BC0A843000E708D /* ErrorHandling.swift */; };
 		AECF16611B0E0B1000CC83B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECF16601B0E0B1000CC83B2 /* AppDelegate.swift */; };
-		AECF16631B0E0B1000CC83B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECF16621B0E0B1000CC83B2 /* ViewController.swift */; };
 		AECF16661B0E0B1000CC83B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AECF16641B0E0B1000CC83B2 /* Main.storyboard */; };
 		AECF16681B0E0B1000CC83B2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AECF16671B0E0B1000CC83B2 /* Images.xcassets */; };
 		AECF166B1B0E0B1000CC83B2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AECF16691B0E0B1000CC83B2 /* LaunchScreen.xib */; };
@@ -37,7 +36,6 @@
 		AECF165B1B0E0B1000CC83B2 /* PresenceA48.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PresenceA48.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AECF165F1B0E0B1000CC83B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AECF16601B0E0B1000CC83B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AECF16621B0E0B1000CC83B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AECF16651B0E0B1000CC83B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AECF16671B0E0B1000CC83B2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AECF166A1B0E0B1000CC83B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 				14A136371BC0A843000E708D /* ErrorHandling.swift */,
 				148CD5041BC0A03D00386C17 /* ParseLoginHelper.swift */,
 				AECF16601B0E0B1000CC83B2 /* AppDelegate.swift */,
-				AECF16621B0E0B1000CC83B2 /* ViewController.swift */,
 				AECF16641B0E0B1000CC83B2 /* Main.storyboard */,
 				AECF16691B0E0B1000CC83B2 /* LaunchScreen.xib */,
 				AECF16671B0E0B1000CC83B2 /* Images.xcassets */,
@@ -306,7 +303,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AECF16631B0E0B1000CC83B2 /* ViewController.swift in Sources */,
 				14A136381BC0A843000E708D /* ErrorHandling.swift in Sources */,
 				148CD5051BC0A03D00386C17 /* ParseLoginHelper.swift in Sources */,
 				AECF16611B0E0B1000CC83B2 /* AppDelegate.swift in Sources */,
