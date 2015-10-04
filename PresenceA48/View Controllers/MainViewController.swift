@@ -86,7 +86,10 @@ extension MainViewController: UITableViewDelegate {
     // on row selection 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        // deselect row
+        usersTableView.deselectRowAtIndexPath(indexPath, animated: true)
         
+        performSegueWithIdentifier("UserViewControllerSegue", sender: self)
         
     }
     
