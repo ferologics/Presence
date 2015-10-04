@@ -15,10 +15,12 @@ class MainViewController: UIViewController {
     @IBOutlet weak var usersTableView: UITableView!
     @IBOutlet weak var baseButton: UIButton!
     
+    
     // MARK: Values
     
     var listButton: UIButton!
     var searchButton: UIButton!
+    
     
     // MARK: Methods
 
