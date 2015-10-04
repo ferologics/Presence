@@ -51,7 +51,7 @@ class MainViewController: UIViewController {
         searchButton.hidden = true
         
         self.view.insertSubview(self.searchButton, atIndex: 3)
-        self.view.insertSubview(self.listButton, atIndex: 3)
+        self.view.insertSubview(self.listButton, atIndex: 4)
     }
     
     override func didReceiveMemoryWarning() {
