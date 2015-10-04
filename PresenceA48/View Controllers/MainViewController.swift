@@ -11,10 +11,12 @@ import UIKit
 class MainViewController: UIViewController {
     
     // MARK: Properties
+    
     @IBOutlet weak var usersTableView: UITableView!
     @IBOutlet weak var baseButton: UIButton!
     
     // MARK: Values
+    
     var listButton: UIButton!
     var searchButton: UIButton!
     
@@ -64,14 +66,18 @@ class MainViewController: UIViewController {
     
     @IBAction func baseButtonTapped(sender: UIButton) {
         
+        // base button togle
+        let buttonMargin: CGFloat = 66
+        
         if sender.selected {
+            // deselect base button
             sender.selected = false
-            UIView.animateWithDuration(0.15, animations: {
-                self.searchButton.center = CGPointMake(self.searchButton.center.x + 66, self.baseButton.center.y)
+            UIView.animateWithDuration(0.13, animations: {
+                self.searchButton.center = CGPointMake(self.searchButton.center.x + buttonMargin, self.baseButton.center.y)
                 }, completion: { void in
                     UIView.animateWithDuration(0.2, animations: {
-                        self.listButton.center = CGPointMake(self.listButton.center.x + 66, self.baseButton.center.y)
-                        self.searchButton.center = CGPointMake(self.searchButton.center.x + 66, self.baseButton.center.y)
+                        self.listButton.center = CGPointMake(self.listButton.center.x + buttonMargin, self.baseButton.center.y)
+                        self.searchButton.center = CGPointMake(self.searchButton.center.x + buttonMargin, self.baseButton.center.y)
                         }, completion: { void in
                             self.listButton.hidden = true
                             self.searchButton.hidden = true
@@ -79,26 +85,31 @@ class MainViewController: UIViewController {
             })
         
         } else {
+            // select base button
             sender.selected = true
-            UIView.animateWithDuration(0.2, animations: {
+            UIView.animateWithDuration(0.1, animations: {
                 self.listButton.hidden = false
                 self.searchButton.hidden = false
-                self.listButton.center = CGPointMake(self.baseButton.center.x - 66, self.baseButton.center.y)
-                self.searchButton.center = CGPointMake(self.baseButton.center.x - 66, self.baseButton.center.y)
+                self.listButton.center = CGPointMake(self.baseButton.center.x - buttonMargin, self.baseButton.center.y)
+                self.searchButton.center = CGPointMake(self.baseButton.center.x - buttonMargin, self.baseButton.center.y)
                 }, completion: { void in
-                    UIView.animateWithDuration(0.15, animations: {
-                        self.searchButton.center = CGPointMake(self.searchButton.center.x - 66, self.baseButton.center.y)
+                    UIView.animateWithDuration(0.1, animations: {
+                        self.searchButton.center = CGPointMake(self.searchButton.center.x - buttonMargin, self.baseButton.center.y)
                     })
             })
         }
     }
     
     @IBAction func listButtonTapped(sender: UIButton) {
-        return
+        
+        
+        
     }
     
     @IBAction func searchButtonTapped(sender: UIButton) {
-        return
+        
+        
+        
     }
 
 }
