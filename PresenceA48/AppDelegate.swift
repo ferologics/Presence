@@ -5,16 +5,41 @@
 
 import UIKit
 import Parse
+import ParseUI
 import Bolts
+import FBSDKCoreKit
+import ParseFacebookUtilsV4
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    var overlay : UIView?
+    var parseLoginHelper: ParseLoginHelper!
+    
+    override init() {
+        super.init()
         
-        ESTConfig.setupAppID("presence-a48", andAppToken: "1f15bfbc76eb65f76fc96ffdef4eb7e8")
+        parseLoginHelper = ParseLoginHelper {[unowned self] user, error in
+            // Initialize the ParseLoginHelper with a callback
+            if let _ = user
+            {
+                // if login was successful, display the TabBarController
+                // 2
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let tabBarController = storyboard.instantiateViewControllerWithIdentifier("ViewController")
+                // 3
+                self.window?.rootViewController!.presentViewController(tabBarController, animated:true, completion:nil)
+            }
+            else if let _ = error
+            {
+                ErrorHanlding.displayError((self.window?.inputViewController)!, error: error!)
+            }
+        }
+    }
+
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+    {
         
         // [Optional] Power your app with Local Datastore. For more info, go to
         // https://parse.com/docs/ios_guide#localdatastore/iOS
@@ -27,8 +52,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
-        // Override point for customization after application launch.
-        return true
+        let user = PFUser.currentUser()
+
+        var startViewController = UIViewController()
+        
+        if (user != nil)
+        {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            startViewController = storyboard.instantiateViewControllerWithIdentifier("ViewController")
+        }
+        else
+        {
+            let loginViewController = PFLogInViewController()
+            loginViewController.fields = PFLogInFields.Facebook
+            loginViewController.delegate = parseLoginHelper
+            loginViewController.signUpController?.delegate = parseLoginHelper
+            loginViewController.facebookPermissions = ["email","public_profile"]
+            
+//            var asdView = UIView()
+//            var logoImageLog = UIImageView()
+//            logoImageLog.image = UIImage(named: "splash")
+//            
+//            asdView.addSubview(logoImageLog)
+//            
+//            loginViewController.logInView?.logo = asdView
+//            
+            //            var logoImageReg = UIImageView()
+            //            logoImageReg.image = UIImage(named: "AppIcon")
+            //            loginViewController.signUpController?.signUpView?.logo = logoImageReg
+            
+            startViewController = loginViewController
+        }
+        
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.rootViewController = startViewController
+        self.window?.makeKeyAndVisible()
+        
+        let acl = PFACL()
+        acl.setPublicReadAccess(true)
+        PFACL.setDefaultACL(acl, withAccessForCurrentUser: true)
+        
+        PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
+        
+        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -54,3 +120,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
+
+extension AppDelegate: PFLogInViewControllerDelegate {}
