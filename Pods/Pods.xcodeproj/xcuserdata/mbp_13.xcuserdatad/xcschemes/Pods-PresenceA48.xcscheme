@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '3B04DB517AF25016CC497EA9'
+               BlueprintIdentifier = 'E523DE0B0FF16082D1B772F9'
                BlueprintName = 'Pods-PresenceA48'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_PresenceA48.framework'>

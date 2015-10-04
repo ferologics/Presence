@@ -69,6 +69,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1464BFC61BC1DC5400C86243 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				14A136371BC0A843000E708D /* ErrorHandling.swift */,
+				148CD5041BC0A03D00386C17 /* ParseLoginHelper.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		33B70E201BC09DA4006414E9 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,8 +129,7 @@
 			children = (
 				33B70E261BC0A121006414E9 /* Table Cells */,
 				33B70E201BC09DA4006414E9 /* View Controllers */,
-				14A136371BC0A843000E708D /* ErrorHandling.swift */,
-				148CD5041BC0A03D00386C17 /* ParseLoginHelper.swift */,
+				1464BFC61BC1DC5400C86243 /* Helpers */,
 				AECF16601B0E0B1000CC83B2 /* AppDelegate.swift */,
 				AECF16641B0E0B1000CC83B2 /* Main.storyboard */,
 				AECF16691B0E0B1000CC83B2 /* LaunchScreen.xib */,
@@ -405,6 +413,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -444,6 +453,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -459,7 +469,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/PresenceA48/Estimote",
 				);
 				INFOPLIST_FILE = PresenceA48/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -480,7 +489,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/PresenceA48/Estimote",
 				);
 				INFOPLIST_FILE = PresenceA48/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

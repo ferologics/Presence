@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
     {
-        ESTConfig.setupAppID("presence-a48", andAppToken: "1f15bfbc76eb65f76fc96ffdef4eb7e8")
+//        ESTConfig.setupAppID("presence-a48", andAppToken: "1f15bfbc76eb65f76fc96ffdef4eb7e8")
         
         // [Optional] Power your app with Local Datastore. For more info, go to
         // https://parse.com/docs/ios_guide#localdatastore/iOS
@@ -65,21 +65,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate
             let loginViewController = PFLogInViewController()
             loginViewController.fields = PFLogInFields.Facebook
             loginViewController.delegate = parseLoginHelper
-//            loginViewController.signUpController?.delegate = parseLoginHelper
             loginViewController.facebookPermissions = ["email","public_profile"]
             
-//            var asdView = UIView()
-//            var logoImageLog = UIImageView()
-//            logoImageLog.image = UIImage(named: "splash")
-//            
-//            asdView.addSubview(logoImageLog)
-//            
-//            loginViewController.logInView?.logo = asdView
-//            
-            //            var logoImageReg = UIImageView()
-            //            logoImageReg.image = UIImage(named: "AppIcon")
-            //            loginViewController.signUpController?.signUpView?.logo = logoImageReg
-            
+            // TODO: 
             startViewController = loginViewController
         }
         
