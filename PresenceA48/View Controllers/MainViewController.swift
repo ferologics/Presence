@@ -8,8 +8,8 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
-    
+class MainViewController: UIViewController
+{
     // MARK: Properties
     
     @IBOutlet weak var usersTableView: UITableView!
@@ -22,15 +22,15 @@ class MainViewController: UIViewController {
     
     // MARK: Methods
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         
         setup()
-        
     }
     
-    func setup() {
-        
+    func setup()
+    {
         // user table view
         usersTableView.delegate = self
         usersTableView.dataSource = self
@@ -56,57 +56,69 @@ class MainViewController: UIViewController {
         self.view.insertSubview(self.listButton, atIndex: 4)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    override func didReceiveMemoryWarning() { super.didReceiveMemoryWarning() }
 
     
     // MARK: - Actions
     
-    @IBAction func baseButtonTapped(sender: UIButton) {
-        
+    @IBAction func baseButtonTapped(sender: UIButton)
+    {
         // base button togle
         let buttonMargin: CGFloat = 66
         
-        if sender.selected {
+        if sender.selected
+        {
             // deselect base button
             sender.selected = false
-            UIView.animateWithDuration(0.13, animations: {
+            UIView.animateWithDuration(0.13, animations:
+            {
                 self.searchButton.center = CGPointMake(self.searchButton.center.x + buttonMargin, self.baseButton.center.y)
-                }, completion: { void in
-                    UIView.animateWithDuration(0.2, animations: {
-                        self.listButton.center = CGPointMake(self.listButton.center.x + buttonMargin, self.baseButton.center.y)
-                        self.searchButton.center = CGPointMake(self.searchButton.center.x + buttonMargin, self.baseButton.center.y)
-                        }, completion: { void in
+            },
+            completion:
+            { void in
+                    UIView.animateWithDuration(0.2, animations:
+                        {
+                            self.listButton.center = CGPointMake(self.listButton.center.x + buttonMargin, self.baseButton.center.y)
+                            self.searchButton.center = CGPointMake(self.searchButton.center.x + buttonMargin, self.baseButton.center.y)
+                        },
+                        completion:
+                        { void in
                             self.listButton.hidden = true
                             self.searchButton.hidden = true
                     })
             })
         
-        } else {
+        }
+        else
+        {
             // select base button
             sender.selected = true
-            UIView.animateWithDuration(0.1, animations: {
+            UIView.animateWithDuration(0.1, animations:
+                {
                 self.listButton.hidden = false
                 self.searchButton.hidden = false
                 self.listButton.center = CGPointMake(self.baseButton.center.x - buttonMargin, self.baseButton.center.y)
                 self.searchButton.center = CGPointMake(self.baseButton.center.x - buttonMargin, self.baseButton.center.y)
-                }, completion: { void in
-                    UIView.animateWithDuration(0.1, animations: {
+                },
+                completion:
+                { void in
+                    UIView.animateWithDuration(0.1, animations:
+                        {
                         self.searchButton.center = CGPointMake(self.searchButton.center.x - buttonMargin, self.baseButton.center.y)
-                    })
+                        })
             })
         }
     }
     
-    @IBAction func listButtonTapped(sender: UIButton) {
+    @IBAction func listButtonTapped(sender: UIButton)
+    {
         
         
         
     }
     
-    @IBAction func searchButtonTapped(sender: UIButton) {
+    @IBAction func searchButtonTapped(sender: UIButton)
+    {
         
         
         
@@ -115,44 +127,40 @@ class MainViewController: UIViewController {
 }
 
 
-extension MainViewController: UITableViewDataSource {
+extension MainViewController: UITableViewDataSource
+{
     
     // set number of rows
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         return 2
-        
     }
     
     // access rows at index path
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
         let cell = usersTableView.dequeueReusableCellWithIdentifier("UserCell") as! UserTableViewCell
         
         return cell
-        
     }
     
 }
 
-extension MainViewController: UITableViewDelegate {
-    
+extension MainViewController: UITableViewDelegate
+{
     // set row height
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    {
         return 77
-        
     }
     
     
     // on row selection 
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
         // deselect row
         usersTableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         performSegueWithIdentifier("UserViewControllerSegue", sender: self)
-        
     }
-    
 }
