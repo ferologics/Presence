@@ -51,11 +51,15 @@ class MainViewController: UIViewController
         searchButton.setBackgroundImage(UIImage(named: "Search Button"), forState: UIControlState.Normal)
         searchButton.addTarget(self, action: "searchButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
         searchButton.hidden = true
-        let selectedSearchImage = UIImage(named: "Search Button - Selected")
-        searchButton.setImage(selectedSearchImage, forState: .Selected)
+        let selectedSearchButtonImage = UIImage(named: "Search Button - Selected")
+        searchButton.setImage(selectedSearchButtonImage, forState: .Selected)
         
         self.view.insertSubview(self.searchButton, atIndex: 3)
         self.view.insertSubview(self.listButton, atIndex: 4)
+        
+        // search bar settings
+        searchBar.delegate = self
+
     }
     
     override func didReceiveMemoryWarning() { super.didReceiveMemoryWarning() }
@@ -132,27 +136,16 @@ class MainViewController: UIViewController
             {
                 self.searchBarTopConstraint.constant = -44
                 self.view.layoutIfNeeded()
-            },
-                completion:
-                { void in
-                    self.searchBar.hidden = true
-                }
-            )
+            })
         } else
         {
             // select
             sender.selected = true
-            self.searchBar.hidden = false
             UIView.animateWithDuration(0.5, animations:
             {
                 self.searchBarTopConstraint.constant = 0
                 self.view.layoutIfNeeded()
-            },
-                completion:
-                { void in
-                    // code
-                    self.searchBar.hidden = false
-                })
+            })
         }
         
     }
@@ -196,4 +189,19 @@ extension MainViewController: UITableViewDelegate
         
         performSegueWithIdentifier("UserViewControllerSegue", sender: self)
     }
+}
+
+extension MainViewController: UISearchBarDelegate {
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        
+        searchButton.selected = false
+        UIView.animateWithDuration(0.5, animations:
+            {
+                self.searchBarTopConstraint.constant = -44
+                self.view.layoutIfNeeded()
+        })
+        
+    }
+    
 }

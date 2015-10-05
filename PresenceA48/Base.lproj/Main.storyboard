@@ -131,7 +131,7 @@
                                     <constraint firstAttribute="height" constant="92" id="VSC-7I-ESb"/>
                                 </constraints>
                             </imageView>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eaR-BG-PnU">
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eaR-BG-PnU">
                                 <rect key="frame" x="0.0" y="-44" width="375" height="44"/>
                                 <animations/>
                                 <constraints>
