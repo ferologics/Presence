@@ -66,21 +66,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate
             let loginViewController = PFLogInViewController()
             loginViewController.fields = PFLogInFields.Facebook
             loginViewController.delegate = parseLoginHelper
-//            loginViewController.signUpController?.delegate = parseLoginHelper
             loginViewController.facebookPermissions = ["email","public_profile"]
             
-//            var asdView = UIView()
-//            var logoImageLog = UIImageView()
-//            logoImageLog.image = UIImage(named: "splash")
-//            
-//            asdView.addSubview(logoImageLog)
-//            
-//            loginViewController.logInView?.logo = asdView
-//            
-            //            var logoImageReg = UIImageView()
-            //            logoImageReg.image = UIImage(named: "AppIcon")
-            //            loginViewController.signUpController?.signUpView?.logo = logoImageReg
-            
+            // TODO: 
             startViewController = loginViewController
         }
         

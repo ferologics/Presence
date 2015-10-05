@@ -5,7 +5,6 @@ use_frameworks!
 
 target 'PresenceA48' do
 pod 'ParseFacebookUtilsV4', '~> 1.8.5'
-#pod 'EstimoteSDK', '~> 3.6.0'
 pod 'FBSDKCoreKit', '~> 4.6.0'
 pod 'SwiftyJSON', '~> 2.3.0'
 pod 'ParseUI', '~> 1.1.6'

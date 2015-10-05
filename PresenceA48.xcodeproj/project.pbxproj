@@ -73,7 +73,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1480E4DF1BC1EA8800FC4292 /* Helpers */ = {
+		1464BFC61BC1DC5400C86243 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				14A136371BC0A843000E708D /* ErrorHandling.swift */,
@@ -142,7 +142,7 @@
 			children = (
 				33B70E261BC0A121006414E9 /* Table Cells */,
 				33B70E201BC09DA4006414E9 /* View Controllers */,
-				1480E4DF1BC1EA8800FC4292 /* Helpers */,
+				1464BFC61BC1DC5400C86243 /* Helpers */,
 				AECF16601B0E0B1000CC83B2 /* AppDelegate.swift */,
 				AECF16641B0E0B1000CC83B2 /* Main.storyboard */,
 				AECF16691B0E0B1000CC83B2 /* LaunchScreen.xib */,
