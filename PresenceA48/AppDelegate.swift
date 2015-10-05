@@ -8,6 +8,7 @@ import Parse
 import ParseUI
 import FBSDKCoreKit
 import ParseFacebookUtilsV4
+//import EstimoteSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate
@@ -36,8 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
     {
-//        ESTConfig.setupAppID("presence-a48", andAppToken: "1f15bfbc76eb65f76fc96ffdef4eb7e8")
-        
+        ESTConfig.setupAppID("presence-a48", andAppToken: "1f15bfbc76eb65f76fc96ffdef4eb7e8")
+
         // [Optional] Power your app with Local Datastore. For more info, go to
         // https://parse.com/docs/ios_guide#localdatastore/iOS
         Parse.enableLocalDatastore()
