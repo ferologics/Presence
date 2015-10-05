@@ -14,8 +14,8 @@ class MainViewController: UIViewController
     
     @IBOutlet weak var usersTableView: UITableView!
     @IBOutlet weak var baseButton: UIButton!
-    
-    // MARK: Values
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchBarTopConstraint: NSLayoutConstraint!
     
     var listButton: UIButton!
     var searchButton: UIButton!
@@ -51,12 +51,16 @@ class MainViewController: UIViewController
         searchButton.setBackgroundImage(UIImage(named: "Search Button"), forState: UIControlState.Normal)
         searchButton.addTarget(self, action: "searchButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
         searchButton.hidden = true
+        let selectedSearchImage = UIImage(named: "Search Button - Selected")
+        searchButton.setImage(selectedSearchImage, forState: .Selected)
         
         self.view.insertSubview(self.searchButton, atIndex: 3)
         self.view.insertSubview(self.listButton, atIndex: 4)
     }
     
     override func didReceiveMemoryWarning() { super.didReceiveMemoryWarning() }
+    
+    override func prefersStatusBarHidden() -> Bool { return true }
 
     
     // MARK: - Actions
@@ -104,7 +108,7 @@ class MainViewController: UIViewController
                 { void in
                     UIView.animateWithDuration(0.1, animations:
                         {
-                        self.searchButton.center = CGPointMake(self.searchButton.center.x - buttonMargin, self.baseButton.center.y)
+                            self.searchButton.center = CGPointMake(self.searchButton.center.x - buttonMargin, self.baseButton.center.y)
                         })
             })
         }
@@ -113,14 +117,43 @@ class MainViewController: UIViewController
     @IBAction func listButtonTapped(sender: UIButton)
     {
         
-        
+        // apply filtering code here
         
     }
     
     @IBAction func searchButtonTapped(sender: UIButton)
     {
-        
-        
+
+        if sender.selected
+        {
+            // deselect
+            sender.selected = false
+            UIView.animateWithDuration(0.5, animations:
+            {
+                self.searchBarTopConstraint.constant = -44
+                self.view.layoutIfNeeded()
+            },
+                completion:
+                { void in
+                    self.searchBar.hidden = true
+                }
+            )
+        } else
+        {
+            // select
+            sender.selected = true
+            self.searchBar.hidden = false
+            UIView.animateWithDuration(0.5, animations:
+            {
+                self.searchBarTopConstraint.constant = 0
+                self.view.layoutIfNeeded()
+            },
+                completion:
+                { void in
+                    // code
+                    self.searchBar.hidden = false
+                })
+        }
         
     }
 
