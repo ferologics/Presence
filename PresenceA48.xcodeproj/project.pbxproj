@@ -120,6 +120,7 @@
 		AECF16521B0E0B1000CC83B2 = {
 			isa = PBXGroup;
 			children = (
+				D53545EB1BC39779002BBEA0 /* Beacons */,
 				AECF165D1B0E0B1000CC83B2 /* PresenceA48 */,
 				AECF16731B0E0B1000CC83B2 /* PresenceA48Tests */,
 				AECF165C1B0E0B1000CC83B2 /* Products */,
@@ -176,6 +177,14 @@
 				AECF16751B0E0B1000CC83B2 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D53545EB1BC39779002BBEA0 /* Beacons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Beacons;
+			path = PresenceA48/Beacons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -472,12 +481,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"\"$(SRCROOT)/EstimoteSDK.framework\"",
 				);
 				INFOPLIST_FILE = PresenceA48/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.QuinnBaker.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -493,12 +504,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"\"$(SRCROOT)/EstimoteSDK.framework\"",
 				);
 				INFOPLIST_FILE = PresenceA48/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.QuinnBaker.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

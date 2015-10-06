@@ -11,11 +11,17 @@ import ParseFacebookUtilsV4
 //import EstimoteSDK
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate
+class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate
 {
     var window: UIWindow?
     var overlay : UIView?
     var parseLoginHelper: ParseLoginHelper!
+    
+    // Make beacon manager
+    
+    let beaconManager = ESTBeaconManager()
+//    let proximityUUID: NSUUID = NSUUID("B9407F30-F5F8-466E-AFF9-25556B57FE6D")
+    let proximityUUID: NSUUID = NSUUID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!
     
     override init()
     {
@@ -37,8 +43,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
     {
+        // ESTIMOTE
+        
         ESTConfig.setupAppID("presence-a48", andAppToken: "1f15bfbc76eb65f76fc96ffdef4eb7e8")
-
+        
+        // Set delegate and request authorization
+        
+        self.beaconManager.delegate = self
+        self.beaconManager.requestAlwaysAuthorization()
+        
+        // Setup the beacons!
+        
+        self.beaconManager.startMonitoringForRegion(CLBeaconRegion(proximityUUID: proximityUUID, major: 21397, minor: 49589, identifier: "Test"))
+        
+        // User notifs
+        
+        UIApplication.sharedApplication().registerUserNotificationSettings(
+            UIUserNotificationSettings(forTypes: .Alert, categories: nil))
+        
         // [Optional] Power your app with Local Datastore. For more info, go to
         // https://parse.com/docs/ios_guide#localdatastore/iOS
         Parse.enableLocalDatastore()
@@ -81,6 +103,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         PFACL.setDefaultACL(acl, withAccessForCurrentUser: true)
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+    }
+    
+    // Beacon manager function belongs here?
+    
+    func beaconManager(manager: AnyObject!, didEnterRegion region: CLBeaconRegion!) {
+        let notification = UILocalNotification()
+        notification.alertBody =
+            "You just entered Test beacon breeding grounds!"
+        UIApplication.sharedApplication().presentLocalNotificationNow(notification)
     }
 
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool
