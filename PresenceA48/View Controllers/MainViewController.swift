@@ -58,7 +58,18 @@ class MainViewController: UIViewController
         self.view.insertSubview(self.listButton, atIndex: 4)
         
         // search bar settings
-        searchBar.delegate = self
+        let searchIconImage = UIImage(named: "Search Icon - White")
+        searchBar.setImage(searchIconImage, forSearchBarIcon: .Search, state: .Normal)
+        searchBar.imageForSearchBarIcon(.Clear, state: .Normal)
+
+        searchBar.layer.shadowColor = UIColor.blackColor().CGColor
+        searchBar.layer.shadowOffset = CGSize(width: 0, height: 2)
+        searchBar.layer.shadowOpacity = 0.1
+        
+        let searchTextField = searchBar.valueForKey("_searchField") as! UITextField
+        searchTextField.font = UIFont(name: "HelveticaNeue-Light", size: 21)
+        searchTextField.textColor = UIColor.grayColor()
+        searchTextField.becomeFirstResponder()
 
     }
     
@@ -130,16 +141,16 @@ class MainViewController: UIViewController
 
         if sender.selected
         {
-            // deselect
+            // deactivate
             sender.selected = false
             UIView.animateWithDuration(0.5, animations:
             {
-                self.searchBarTopConstraint.constant = -44
+                self.searchBarTopConstraint.constant = -64
                 self.view.layoutIfNeeded()
             })
         } else
         {
-            // select
+            // activate
             sender.selected = true
             UIView.animateWithDuration(0.5, animations:
             {
@@ -189,19 +200,4 @@ extension MainViewController: UITableViewDelegate
         
         performSegueWithIdentifier("UserViewControllerSegue", sender: self)
     }
-}
-
-extension MainViewController: UISearchBarDelegate {
-    
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        
-        searchButton.selected = false
-        UIView.animateWithDuration(0.5, animations:
-            {
-                self.searchBarTopConstraint.constant = -44
-                self.view.layoutIfNeeded()
-        })
-        
-    }
-    
 }
