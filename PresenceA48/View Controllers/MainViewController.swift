@@ -76,7 +76,8 @@ class MainViewController: UIViewController
             },
             completion:
             { void in
-                    UIView.animateWithDuration(0.2, animations:
+                    UIView.animateWithDuration(0.2,
+                        animations:
                         {
                             self.listButton.center = CGPointMake(self.listButton.center.x + buttonMargin, self.baseButton.center.y)
                             self.searchButton.center = CGPointMake(self.searchButton.center.x + buttonMargin, self.baseButton.center.y)
@@ -93,7 +94,8 @@ class MainViewController: UIViewController
         {
             // select base button
             sender.selected = true
-            UIView.animateWithDuration(0.1, animations:
+            UIView.animateWithDuration(0.1,
+                animations:
                 {
                 self.listButton.hidden = false
                 self.searchButton.hidden = false
@@ -102,7 +104,8 @@ class MainViewController: UIViewController
                 },
                 completion:
                 { void in
-                    UIView.animateWithDuration(0.1, animations:
+                    UIView.animateWithDuration(0.1,
+                        animations:
                         {
                         self.searchButton.center = CGPointMake(self.searchButton.center.x - buttonMargin, self.baseButton.center.y)
                         })
