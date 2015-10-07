@@ -116,6 +116,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate
     
     func beaconManager(manager: AnyObject!, didEnterRegion region: CLBeaconRegion!) {
         let notification = UILocalNotification()
+        // setup internat nsnotivication center to alert a function, push to parse based on the region
         switch region.identifier {
             case "Blueberry":
                 notification.alertBody = "You entered Blueberry's field!"
