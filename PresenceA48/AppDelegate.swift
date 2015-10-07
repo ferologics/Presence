@@ -54,7 +54,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate
         
         // Setup the beacons!
         
-        self.beaconManager.startMonitoringForRegion(CLBeaconRegion(proximityUUID: proximityUUID, major: 21397, minor: 49589, identifier: "Test"))
+        self.beaconManager.startMonitoringForRegion(CLBeaconRegion(proximityUUID: proximityUUID, major: 21397, minor: 49589, identifier: "Blueberry"))
+        
+        self.beaconManager.startMonitoringForRegion(CLBeaconRegion(proximityUUID: proximityUUID, major: 13815, minor: 51968, identifier:  "Mint"))
+        
+        self.beaconManager.startMonitoringForRegion(CLBeaconRegion(proximityUUID: proximityUUID, major: 16123, minor: 35119, identifier: "Icy1"))
+        
+        self.beaconManager.startMonitoringForRegion(CLBeaconRegion(proximityUUID: proximityUUID, major: 18550, minor: 58637, identifier: "Icy2"))
+        
         
         // User notifs
         
@@ -109,8 +116,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate
     
     func beaconManager(manager: AnyObject!, didEnterRegion region: CLBeaconRegion!) {
         let notification = UILocalNotification()
-        notification.alertBody =
-            "You just entered Test beacon breeding grounds!"
+        switch region.identifier {
+            case "Blueberry":
+                notification.alertBody = "You entered Blueberry's field!"
+            
+            case "Mint":
+                notification.alertBody = "You entered Mint's field!"
+            
+            case "Icy1":
+                notification.alertBody = "You entered Icy1's field!"
+            
+            case "Icy2":
+                notification.alertBody = "You entered Icy2's field!"
+            
+            default:
+                notification.alertBody = "Error identifying beacon"
+        }
+        
         UIApplication.sharedApplication().presentLocalNotificationNow(notification)
     }
 
