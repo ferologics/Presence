@@ -131,22 +131,22 @@
                                     <constraint firstAttribute="height" constant="92" id="VSC-7I-ESb"/>
                                 </constraints>
                             </imageView>
-                            <searchBar contentMode="redraw" searchBarStyle="prominent" translatesAutoresizingMaskIntoConstraints="NO" id="eaR-BG-PnU">
+                            <searchBar contentMode="redraw" searchBarStyle="prominent" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eaR-BG-PnU">
                                 <rect key="frame" x="0.0" y="-64" width="375" height="64"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="bYD-Kz-4p3"/>
                                 </constraints>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <offsetWrapper key="searchTextPositionAdjustment" horizontal="35" vertical="0.0"/>
+                                <offsetWrapper key="searchTextPositionAdjustment" horizontal="5" vertical="0.0"/>
                                 <textInputTraits key="textInputTraits" keyboardAppearance="light" returnKeyType="search"/>
                             </searchBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Search Icon" translatesAutoresizingMaskIntoConstraints="NO" id="Tu3-Oe-2gx" userLabel="Search Icon">
-                                <rect key="frame" x="36" y="-42.5" width="25" height="25"/>
+                                <rect key="frame" x="10" y="-43" width="25" height="26"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="Jc5-TH-mva"/>
-                                    <constraint firstAttribute="height" constant="25" id="oXW-eG-ePy"/>
+                                    <constraint firstAttribute="height" constant="26" id="oXW-eG-ePy"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8Z-3b-XJI" userLabel="Base Button">
@@ -170,7 +170,7 @@
                             <constraint firstAttribute="trailing" secondItem="k8Z-3b-XJI" secondAttribute="trailing" constant="25" id="4bB-jX-cIr"/>
                             <constraint firstAttribute="trailing" secondItem="h8O-55-e6R" secondAttribute="trailing" id="5FU-SS-iM8"/>
                             <constraint firstItem="Tu3-Oe-2gx" firstAttribute="centerY" secondItem="eaR-BG-PnU" secondAttribute="centerY" constant="2" id="65t-8e-3zc"/>
-                            <constraint firstItem="Tu3-Oe-2gx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="36" id="9o0-4g-yU2"/>
+                            <constraint firstItem="Tu3-Oe-2gx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="9o0-4g-yU2"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mXA-5Y-aKg" secondAttribute="bottom" id="CQw-Tf-ESZ"/>
                             <constraint firstAttribute="trailing" secondItem="Vns-wX-wFn" secondAttribute="trailing" id="I7q-ya-gOf"/>
                             <constraint firstAttribute="trailing" secondItem="eaR-BG-PnU" secondAttribute="trailing" id="Lqb-qf-gXG"/>
@@ -232,8 +232,8 @@
                                     <action selector="backButtonTapped:" destination="DhS-S9-kd6" eventType="touchUpInside" id="Pfj-Xl-rai"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jimmy Yue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05e-hP-h0e">
-                                <rect key="frame" x="127" y="205" width="121" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05e-hP-h0e">
+                                <rect key="frame" x="155" y="205" width="65" height="29"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -256,7 +256,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buried underground" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7i-RM-7IC" userLabel="Status Message">
-                                <rect key="frame" x="128" y="244" width="130" height="17"/>
+                                <rect key="frame" x="128" y="244" width="129.5" height="17"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.43761427859042545" green="0.43761427859042545" blue="0.43761427859042545" alpha="1" colorSpace="calibratedRGB"/>
@@ -289,9 +289,9 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="indicator" destination="hkG-xT-JKd" id="TQL-OH-4ah"/>
+                        <outlet property="nameLabel" destination="05e-hP-h0e" id="4r7-nJ-UtD"/>
                         <outlet property="profilePicture" destination="XT1-Wc-V0M" id="P2L-lH-gJH"/>
                         <outlet property="statusMessageLabel" destination="e7i-RM-7IC" id="8xI-oL-jEF"/>
-                        <outlet property="userName" destination="05e-hP-h0e" id="GSI-lS-GtG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="agJ-hZ-5lc" userLabel="First Responder" sceneMemberID="firstResponder"/>

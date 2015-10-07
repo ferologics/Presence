@@ -20,6 +20,9 @@ class MainViewController: UIViewController
     var listButton: UIButton!
     var searchButton: UIButton!
     
+    var selectedCellName: String?
+    var selectedCellStatus: String?
+    
     // MARK: Methods
 
     override func viewDidLoad()
@@ -34,6 +37,8 @@ class MainViewController: UIViewController
         // user table view
         usersTableView.delegate = self
         usersTableView.dataSource = self
+        
+        usersTableView.contentInset = UIEdgeInsetsMake(15, 0, 0, 0)
         
         // button settings and initiation
         let buttonFrame = baseButton.frame
@@ -58,9 +63,12 @@ class MainViewController: UIViewController
         self.view.insertSubview(self.listButton, atIndex: 4)
         
         // search bar settings
+        searchBar.delegate = self
+        
         let searchIconImage = UIImage(named: "Search Icon - White")
         searchBar.setImage(searchIconImage, forSearchBarIcon: .Search, state: .Normal)
         searchBar.imageForSearchBarIcon(.Clear, state: .Normal)
+        searchBar.tintColor = UIColor(red: 72/255, green: 178/255, blue: 232/255, alpha: 1)
 
         searchBar.layer.shadowColor = UIColor.blackColor().CGColor
         searchBar.layer.shadowOffset = CGSize(width: 0, height: 2)
@@ -69,8 +77,15 @@ class MainViewController: UIViewController
         let searchTextField = searchBar.valueForKey("_searchField") as! UITextField
         searchTextField.font = UIFont(name: "HelveticaNeue-Light", size: 21)
         searchTextField.textColor = UIColor.grayColor()
-        searchTextField.becomeFirstResponder()
 
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+
+        let nextViewController = segue.destinationViewController as! UserViewController
+        nextViewController.name = selectedCellName!
+        nextViewController.status = selectedCellStatus!
+        
     }
     
     override func didReceiveMemoryWarning() { super.didReceiveMemoryWarning() }
@@ -79,6 +94,36 @@ class MainViewController: UIViewController
 
     
     // MARK: - Actions
+    
+    // search bar animations
+    func animateSearchBarEnter()
+    {
+        searchBar.becomeFirstResponder()
+        UIView.animateWithDuration(0.5, animations:
+            {
+                self.searchBarTopConstraint.constant = 0
+                self.view.layoutIfNeeded()
+        })
+    }
+    
+    func animateSearchBarExit()
+    {
+        searchBar.resignFirstResponder()
+        UIView.animateWithDuration(0.5, animations:
+            {
+                self.searchBarTopConstraint.constant = -64
+                self.view.layoutIfNeeded()
+        })
+    }
+    
+    func dismissKeyboard()
+    {
+        view.endEditing(true)
+        searchBar.resignFirstResponder()
+        animateSearchBarExit()
+        searchButton.selected = false
+        
+    }
     
     @IBAction func baseButtonTapped(sender: UIButton)
     {
@@ -143,20 +188,12 @@ class MainViewController: UIViewController
         {
             // deactivate
             sender.selected = false
-            UIView.animateWithDuration(0.5, animations:
-            {
-                self.searchBarTopConstraint.constant = -64
-                self.view.layoutIfNeeded()
-            })
+            animateSearchBarExit()
         } else
         {
             // activate
             sender.selected = true
-            UIView.animateWithDuration(0.5, animations:
-            {
-                self.searchBarTopConstraint.constant = 0
-                self.view.layoutIfNeeded()
-            })
+            animateSearchBarEnter()
         }
         
     }
@@ -178,6 +215,8 @@ extension MainViewController: UITableViewDataSource
     {
         let cell = usersTableView.dequeueReusableCellWithIdentifier("UserCell") as! UserTableViewCell
         
+//        cell.nameLabel.text = "this works"
+        
         return cell
     }
     
@@ -198,6 +237,20 @@ extension MainViewController: UITableViewDelegate
         // deselect row
         usersTableView.deselectRowAtIndexPath(indexPath, animated: true)
         
+        let cell =  usersTableView.cellForRowAtIndexPath(indexPath) as! UserTableViewCell
+//        print(cell.nameLabel.text)
+//        selectedCell = cell
+        selectedCellName = cell.nameLabel.text
+        selectedCellStatus = cell.statusLabel.text
+        
         performSegueWithIdentifier("UserViewControllerSegue", sender: self)
+    }
+}
+
+extension MainViewController: UISearchBarDelegate
+{
+    func searchBarCancelButtonClicked(searchBar: UISearchBar)
+    {
+        dismissKeyboard()
     }
 }

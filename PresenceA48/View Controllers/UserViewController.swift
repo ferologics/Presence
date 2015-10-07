@@ -13,8 +13,11 @@ class UserViewController: UIViewController
 
     // MARK: - Properties
     
+    var name: String?
+    var status: String?
+    
     @IBOutlet weak var profilePicture: UIImageView!
-    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var statusMessageLabel: UILabel!
     @IBOutlet weak var indicator: UIImageView!
     
@@ -23,6 +26,9 @@ class UserViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        self.nameLabel.text = name!
+        self.statusMessageLabel.text = status!
     }
 
     override func didReceiveMemoryWarning()
