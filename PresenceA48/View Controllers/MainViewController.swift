@@ -30,6 +30,7 @@ class MainViewController: UIViewController
         super.viewDidLoad()
         
         setup()
+        
     }
     
     func setup()
@@ -38,7 +39,7 @@ class MainViewController: UIViewController
         usersTableView.delegate = self
         usersTableView.dataSource = self
         
-        usersTableView.contentInset = UIEdgeInsetsMake(15, 0, 0, 0)
+        usersTableView.contentInset = UIEdgeInsetsMake(35, 0, 0, 0)
         
         // button settings and initiation
         let buttonFrame = baseButton.frame
@@ -90,7 +91,7 @@ class MainViewController: UIViewController
     
     override func didReceiveMemoryWarning() { super.didReceiveMemoryWarning() }
     
-    override func prefersStatusBarHidden() -> Bool { return true }
+//    override func prefersStatusBarHidden() -> Bool { return true }
 
     
     // MARK: - Actions
@@ -200,6 +201,7 @@ class MainViewController: UIViewController
 
 }
 
+// MARK: - Extensions
 
 extension MainViewController: UITableViewDataSource
 {
@@ -215,7 +217,8 @@ extension MainViewController: UITableViewDataSource
     {
         let cell = usersTableView.dequeueReusableCellWithIdentifier("UserCell") as! UserTableViewCell
         
-//        cell.nameLabel.text = "this works"
+        // FIXME: Status label sample case
+        cell.statusLabel.text = "Buried underground"
         
         return cell
     }

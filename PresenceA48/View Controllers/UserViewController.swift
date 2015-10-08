@@ -13,13 +13,13 @@ class UserViewController: UIViewController
 
     // MARK: - Properties
     
-    var name: String?
-    var status: String?
-    
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var statusMessageLabel: UILabel!
     @IBOutlet weak var indicator: UIImageView!
+    
+    var name: String?
+    var status: String?
     
     // MARK: - Methods
     
@@ -27,8 +27,18 @@ class UserViewController: UIViewController
     {
         super.viewDidLoad()
         
+        setup()
+        
+        // label setup source view controller
         self.nameLabel.text = name!
         self.statusMessageLabel.text = status!
+    }
+    
+    func setup()
+    {
+        // rounded imageView
+        profilePicture.layer.cornerRadius = profilePicture.frame.size.width / 2
+        profilePicture.layer.masksToBounds = true
     }
 
     override func didReceiveMemoryWarning()

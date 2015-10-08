@@ -23,6 +23,10 @@ class UserTableViewCell: UITableViewCell
     {
         super.awakeFromNib()
         
+        // round imageView
+        profilePicture.layer.cornerRadius = profilePicture.frame.size.width / 2
+        profilePicture.layer.masksToBounds = true
+        
         // set selection color for cell
         let blueColorView = UIView()
         blueColorView.backgroundColor = UIColor(red: 72/255, green: 178/255, blue: 232/255, alpha: 1.0)
