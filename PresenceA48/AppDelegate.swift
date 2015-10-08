@@ -40,6 +40,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate
             else if let err = error { ErrorHanlding.displayError((self.window?.inputViewController)!, error: err) }
         }
     }
+    
+    func setUpNotificationObservers()
+    {
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector: "changedLocation:",
+            name: "",
+            object: nil)
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
     {
@@ -97,7 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate
             loginViewController.delegate = parseLoginHelper
             loginViewController.facebookPermissions = ["email","public_profile"]
             
-            // TODO: 
+            // TODO:
             startViewController = loginViewController
         }
         
@@ -114,27 +123,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate
     
     // Beacon manager function belongs here?
     
-    func beaconManager(manager: AnyObject!, didEnterRegion region: CLBeaconRegion!) {
-        let notification = UILocalNotification()
-        // setup internat nsnotivication center to alert a function, push to parse based on the region
-        switch region.identifier {
+    func beaconManager(manager: AnyObject!, didEnterRegion region: CLBeaconRegion!)
+    {
+        if let user = PFUser.currentUser()
+        {
+            let notification = UILocalNotification()
+            // setup internat nsnotivication center to alert a function, push to parse based on the region
+            switch region.identifier
+            {
             case "Blueberry":
-                notification.alertBody = "You entered Blueberry's field!"
-            
+                user["locaiton"] = "Upstairs"
+                notification.alertBody = "You entered Upstairs!"
+                
             case "Mint":
-                notification.alertBody = "You entered Mint's field!"
-            
+                user["locaiton"] = "Staff area"
+                notification.alertBody = "You entered Staff area!"
+                
             case "Icy1":
-                notification.alertBody = "You entered Icy1's field!"
-            
+                user["locaiton"] = "Downstairs"
+                notification.alertBody = "You entered Downstairs!"
+                
             case "Icy2":
-                notification.alertBody = "You entered Icy2's field!"
-            
+                user["locaiton"] = "Main room"
+                notification.alertBody = "You entered Main room!"
+                
             default:
+                user["locaiton"] = ""
                 notification.alertBody = "Error identifying beacon"
+            }
+            
+            user.saveInBackgroundWithBlock({ (success, error) -> Void in
+                if let err = error { ErrorHanlding.displayError((self.window?.inputViewController)!, error: err) }
+            })
+            UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+            
         }
-        
-        UIApplication.sharedApplication().presentLocalNotificationNow(notification)
     }
 
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool
