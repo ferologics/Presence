@@ -12,6 +12,7 @@
 		14A136381BC0A843000E708D /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A136371BC0A843000E708D /* ErrorHandling.swift */; };
 		33B70E221BC09DC8006414E9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B70E211BC09DC8006414E9 /* MainViewController.swift */; };
 		33B70E281BC0A12B006414E9 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B70E271BC0A12B006414E9 /* UserTableViewCell.swift */; };
+		33DE6ABB1BC78D7B0086E525 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DE6ABA1BC78D7B0086E525 /* ParseHelper.swift */; settings = {ASSET_TAGS = (); }; };
 		33FAB0FD1BC0BCAE00D4AC17 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAB0FC1BC0BCAE00D4AC17 /* UserViewController.swift */; };
 		712DCA476CEE608C4602B638 /* Pods_PresenceA48.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45930B59687E6D9E036AF4C6 /* Pods_PresenceA48.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		AECF16611B0E0B1000CC83B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECF16601B0E0B1000CC83B2 /* AppDelegate.swift */; };
@@ -38,6 +39,7 @@
 		14A136371BC0A843000E708D /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		33B70E211BC09DC8006414E9 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		33B70E271BC0A12B006414E9 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		33DE6ABA1BC78D7B0086E525 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseHelper.swift; path = Helpers/ParseHelper.swift; sourceTree = "<group>"; };
 		33FAB0FC1BC0BCAE00D4AC17 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		45930B59687E6D9E036AF4C6 /* Pods_PresenceA48.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PresenceA48.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BFF714F479BB72270B9203D /* Pods-PresenceA48.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresenceA48.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PresenceA48/Pods-PresenceA48.debug.xcconfig"; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			children = (
 				14A136371BC0A843000E708D /* ErrorHandling.swift */,
 				148CD5041BC0A03D00386C17 /* ParseLoginHelper.swift */,
+				33DE6ABA1BC78D7B0086E525 /* ParseHelper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 			files = (
 				14A136381BC0A843000E708D /* ErrorHandling.swift in Sources */,
 				148CD5051BC0A03D00386C17 /* ParseLoginHelper.swift in Sources */,
+				33DE6ABB1BC78D7B0086E525 /* ParseHelper.swift in Sources */,
 				AECF16611B0E0B1000CC83B2 /* AppDelegate.swift in Sources */,
 				33FAB0FD1BC0BCAE00D4AC17 /* UserViewController.swift in Sources */,
 				33B70E281BC0A12B006414E9 /* UserTableViewCell.swift in Sources */,

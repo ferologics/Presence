@@ -73,7 +73,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate
         
         
         // User notifs
-        
         UIApplication.sharedApplication().registerUserNotificationSettings(
             UIUserNotificationSettings(forTypes: .Alert, categories: nil))
 
@@ -82,8 +81,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate
         Parse.enableLocalDatastore()
         
         // Initialize Parse.
-        Parse.setApplicationId("wIP2XuICQ0XllXuJyCTccLVtyQvdBcqrKCdQnnOD",
-            clientKey: "If47RIuAnNCHbVrVORfzkOq2yrAdNdTw8XgwYsib")
+        Parse.setApplicationId("Mmww5Ksu7tBqAStSU7BGYKJV5wz9iYDiSRPXiA0A",
+            clientKey: "RmBTXWD3kQtUaUyAXlZHM7UoEmrQZPP8RWwDZB73")
         
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
         

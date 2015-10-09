@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Parse
+
 
 class MainViewController: UIViewController
 {
@@ -22,6 +24,8 @@ class MainViewController: UIViewController
     
     var selectedCellName: String?
     var selectedCellStatus: String?
+
+    var users: [PFUser] = []
     
     // MARK: Methods
 
@@ -30,6 +34,16 @@ class MainViewController: UIViewController
         super.viewDidLoad()
         
         setup()
+        
+        // reload
+        ParseHelper.requestUsers()
+        { (users, error) in
+            if let users = users
+            {
+                self.users = users
+                self.usersTableView.reloadData()
+            }
+        }
         
     }
     
@@ -91,7 +105,7 @@ class MainViewController: UIViewController
     
     override func didReceiveMemoryWarning() { super.didReceiveMemoryWarning() }
     
-//    override func prefersStatusBarHidden() -> Bool { return true }
+    override func prefersStatusBarHidden() -> Bool { return true }
 
     
     // MARK: - Actions
@@ -212,7 +226,7 @@ extension MainViewController: UITableViewDataSource
     // set number of rows
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 2
+        return users.count
     }
     
     // access rows at index path
@@ -220,8 +234,18 @@ extension MainViewController: UITableViewDataSource
     {
         let cell = usersTableView.dequeueReusableCellWithIdentifier("UserCell") as! UserTableViewCell
         
-        // FIXME: Status label sample case
-        cell.statusLabel.text = "Buried underground"
+        let user = users[indexPath.row]
+        
+        cell.nameLabel.text = user.username
+        
+        let userStatus = ParseHelper.requestUserStatus(user)
+        cell.statusLabel.text = userStatus
+        
+        let userProfilePic = ParseHelper.requestUserProfilePicture(user)
+        if let userProfilePic = userProfilePic
+        {
+            cell.imageView?.image = userProfilePic
+        }
         
         return cell
     }
@@ -244,8 +268,6 @@ extension MainViewController: UITableViewDelegate
         usersTableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         let cell =  usersTableView.cellForRowAtIndexPath(indexPath) as! UserTableViewCell
-//        print(cell.nameLabel.text)
-//        selectedCell = cell
         selectedCellName = cell.nameLabel.text
         selectedCellStatus = cell.statusLabel.text
         
