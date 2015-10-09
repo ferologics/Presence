@@ -14,11 +14,14 @@ class MainViewController: UIViewController
     
     @IBOutlet weak var usersTableView: UITableView!
     @IBOutlet weak var baseButton: UIButton!
-    
-    // MARK: Values
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchBarTopConstraint: NSLayoutConstraint!
     
     var listButton: UIButton!
     var searchButton: UIButton!
+    
+    var selectedCellName: String?
+    var selectedCellStatus: String?
     
     // MARK: Methods
 
@@ -34,6 +37,8 @@ class MainViewController: UIViewController
         // user table view
         usersTableView.delegate = self
         usersTableView.dataSource = self
+        
+        usersTableView.contentInset = UIEdgeInsetsMake(15, 0, 0, 0)
         
         // button settings and initiation
         let buttonFrame = baseButton.frame
@@ -51,15 +56,74 @@ class MainViewController: UIViewController
         searchButton.setBackgroundImage(UIImage(named: "Search Button"), forState: UIControlState.Normal)
         searchButton.addTarget(self, action: "searchButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
         searchButton.hidden = true
+        let selectedSearchButtonImage = UIImage(named: "Search Button - Selected")
+        searchButton.setImage(selectedSearchButtonImage, forState: .Selected)
         
         self.view.insertSubview(self.searchButton, atIndex: 3)
         self.view.insertSubview(self.listButton, atIndex: 4)
+        
+        // search bar settings
+        searchBar.delegate = self
+        
+        let searchIconImage = UIImage(named: "Search Icon - White")
+        searchBar.setImage(searchIconImage, forSearchBarIcon: .Search, state: .Normal)
+        searchBar.imageForSearchBarIcon(.Clear, state: .Normal)
+        searchBar.tintColor = UIColor(red: 72/255, green: 178/255, blue: 232/255, alpha: 1)
+
+        searchBar.layer.shadowColor = UIColor.blackColor().CGColor
+        searchBar.layer.shadowOffset = CGSize(width: 0, height: 2)
+        searchBar.layer.shadowOpacity = 0.1
+        
+        let searchTextField = searchBar.valueForKey("_searchField") as! UITextField
+        searchTextField.font = UIFont(name: "HelveticaNeue-Light", size: 21)
+        searchTextField.textColor = UIColor.grayColor()
+
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+
+        let nextViewController = segue.destinationViewController as! UserViewController
+        nextViewController.name = selectedCellName!
+        nextViewController.status = selectedCellStatus!
+        
     }
     
     override func didReceiveMemoryWarning() { super.didReceiveMemoryWarning() }
+    
+    override func prefersStatusBarHidden() -> Bool { return true }
 
     
     // MARK: - Actions
+    
+    // search bar animations
+    func animateSearchBarEnter()
+    {
+        searchBar.becomeFirstResponder()
+        UIView.animateWithDuration(0.5, animations:
+            {
+                self.searchBarTopConstraint.constant = 0
+                self.view.layoutIfNeeded()
+        })
+    }
+    
+    func animateSearchBarExit()
+    {
+        searchBar.resignFirstResponder()
+        UIView.animateWithDuration(0.5, animations:
+            {
+                self.searchBarTopConstraint.constant = -64
+                self.view.layoutIfNeeded()
+        })
+    }
+    
+    func dismissKeyboard()
+    {
+        view.endEditing(true)
+        searchBar.resignFirstResponder()
+        animateSearchBarExit()
+        searchButton.selected = false
+        
+    }
     
     @IBAction func baseButtonTapped(sender: UIButton)
     {
@@ -107,7 +171,7 @@ class MainViewController: UIViewController
                     UIView.animateWithDuration(0.1,
                         animations:
                         {
-                        self.searchButton.center = CGPointMake(self.searchButton.center.x - buttonMargin, self.baseButton.center.y)
+                            self.searchButton.center = CGPointMake(self.searchButton.center.x - buttonMargin, self.baseButton.center.y)
                         })
             })
         }
@@ -116,14 +180,24 @@ class MainViewController: UIViewController
     @IBAction func listButtonTapped(sender: UIButton)
     {
         
-        
+        // apply filtering code here
         
     }
     
     @IBAction func searchButtonTapped(sender: UIButton)
     {
-        
-        
+
+        if sender.selected
+        {
+            // deactivate
+            sender.selected = false
+            animateSearchBarExit()
+        } else
+        {
+            // activate
+            sender.selected = true
+            animateSearchBarEnter()
+        }
         
     }
 
@@ -143,6 +217,8 @@ extension MainViewController: UITableViewDataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = usersTableView.dequeueReusableCellWithIdentifier("UserCell") as! UserTableViewCell
+        
+//        cell.nameLabel.text = "this works"
         
         return cell
     }
@@ -164,6 +240,20 @@ extension MainViewController: UITableViewDelegate
         // deselect row
         usersTableView.deselectRowAtIndexPath(indexPath, animated: true)
         
+        let cell =  usersTableView.cellForRowAtIndexPath(indexPath) as! UserTableViewCell
+//        print(cell.nameLabel.text)
+//        selectedCell = cell
+        selectedCellName = cell.nameLabel.text
+        selectedCellStatus = cell.statusLabel.text
+        
         performSegueWithIdentifier("UserViewControllerSegue", sender: self)
+    }
+}
+
+extension MainViewController: UISearchBarDelegate
+{
+    func searchBarCancelButtonClicked(searchBar: UISearchBar)
+    {
+        dismissKeyboard()
     }
 }

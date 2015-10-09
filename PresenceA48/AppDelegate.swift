@@ -11,11 +11,17 @@ import ParseFacebookUtilsV4
 //import EstimoteSDK
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate
+class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate
 {
     var window: UIWindow?
     var overlay : UIView?
     var parseLoginHelper: ParseLoginHelper!
+    
+    // Make beacon manager
+    
+    let beaconManager = ESTBeaconManager()
+//    let proximityUUID: NSUUID = NSUUID("B9407F30-F5F8-466E-AFF9-25556B57FE6D")
+    let proximityUUID: NSUUID = NSUUID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!
     
     override init()
     {
@@ -34,10 +40,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate
             else if let err = error { ErrorHanlding.displayError((self.window?.inputViewController)!, error: err) }
         }
     }
+    
+    func setUpNotificationObservers()
+    {
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector: "changedLocation:",
+            name: "",
+            object: nil)
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
     {
+        // ESTIMOTE
+        
         ESTConfig.setupAppID("presence-a48", andAppToken: "1f15bfbc76eb65f76fc96ffdef4eb7e8")
+        
+        // Set delegate and request authorization
+        
+        self.beaconManager.delegate = self
+        self.beaconManager.requestAlwaysAuthorization()
+        
+        // Setup the beacons!
+        
+        self.beaconManager.startMonitoringForRegion(CLBeaconRegion(proximityUUID: proximityUUID, major: 21397, minor: 49589, identifier: "Blueberry"))
+        
+        self.beaconManager.startMonitoringForRegion(CLBeaconRegion(proximityUUID: proximityUUID, major: 13815, minor: 51968, identifier:  "Mint"))
+        
+        self.beaconManager.startMonitoringForRegion(CLBeaconRegion(proximityUUID: proximityUUID, major: 16123, minor: 35119, identifier: "Icy1"))
+        
+        self.beaconManager.startMonitoringForRegion(CLBeaconRegion(proximityUUID: proximityUUID, major: 18550, minor: 58637, identifier: "Icy2"))
+        
+        
+        // User notifs
+        
+        UIApplication.sharedApplication().registerUserNotificationSettings(
+            UIUserNotificationSettings(forTypes: .Alert, categories: nil))
 
         // [Optional] Power your app with Local Datastore. For more info, go to
         // https://parse.com/docs/ios_guide#localdatastore/iOS
@@ -68,7 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
             loginViewController.delegate = parseLoginHelper
             loginViewController.facebookPermissions = ["email","public_profile"]
             
-            // TODO: 
+            // TODO:
             startViewController = loginViewController
         }
         
@@ -81,6 +119,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         PFACL.setDefaultACL(acl, withAccessForCurrentUser: true)
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+    }
+    
+    // Beacon manager function belongs here?
+    
+    func beaconManager(manager: AnyObject!, didEnterRegion region: CLBeaconRegion!)
+    {
+        if let user = PFUser.currentUser()
+        {
+            let notification = UILocalNotification()
+            // setup internat nsnotivication center to alert a function, push to parse based on the region
+            switch region.identifier
+            {
+            case "Blueberry":
+                user["locaiton"] = "Upstairs"
+                notification.alertBody = "You entered Upstairs!"
+                
+            case "Mint":
+                user["locaiton"] = "Staff area"
+                notification.alertBody = "You entered Staff area!"
+                
+            case "Icy1":
+                user["locaiton"] = "Downstairs"
+                notification.alertBody = "You entered Downstairs!"
+                
+            case "Icy2":
+                user["locaiton"] = "Main room"
+                notification.alertBody = "You entered Main room!"
+                
+            default:
+                user["locaiton"] = ""
+                notification.alertBody = "Error identifying beacon"
+            }
+            
+            user.saveInBackgroundWithBlock({ (success, error) -> Void in
+                if let err = error { ErrorHanlding.displayError((self.window?.inputViewController)!, error: err) }
+            })
+            UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+            
+        }
     }
 
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool
