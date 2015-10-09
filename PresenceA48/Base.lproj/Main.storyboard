@@ -30,15 +30,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="76.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile Picture - Mask" translatesAutoresizingMaskIntoConstraints="NO" id="Xmx-fv-NVz" userLabel="Profile Picture - Mask">
-                                                    <rect key="frame" x="30" y="11" width="54" height="54"/>
-                                                    <animations/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="54" id="Vje-pa-uqY"/>
-                                                        <constraint firstAttribute="height" constant="54" id="eeT-Nf-Kku"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FBx-Uv-VBM" userLabel="Profile Picture">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sample Profile Picture" translatesAutoresizingMaskIntoConstraints="NO" id="FBx-Uv-VBM" userLabel="Profile Picture">
                                                     <rect key="frame" x="30" y="11" width="54" height="54"/>
                                                     <animations/>
                                                     <constraints>
@@ -79,26 +71,21 @@
                                             </subviews>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstItem="Xmx-fv-NVz" firstAttribute="leading" secondItem="Kmp-8a-a4r" secondAttribute="leading" constant="30" id="4OC-w2-3uZ"/>
                                                 <constraint firstItem="XAA-CQ-NXK" firstAttribute="top" secondItem="Kmp-8a-a4r" secondAttribute="top" constant="36" id="CzN-Cs-5AG"/>
                                                 <constraint firstItem="XAA-CQ-NXK" firstAttribute="top" secondItem="zjy-If-pR1" secondAttribute="top" constant="25" id="D35-iJ-a7d"/>
                                                 <constraint firstItem="FBx-Uv-VBM" firstAttribute="leading" secondItem="Kmp-8a-a4r" secondAttribute="leading" constant="30" id="Jdw-ZL-lqj"/>
                                                 <constraint firstItem="M3b-SA-ecr" firstAttribute="top" secondItem="zjy-If-pR1" secondAttribute="top" id="Jx4-Rt-JLh"/>
                                                 <constraint firstItem="zjy-If-pR1" firstAttribute="top" secondItem="Kmp-8a-a4r" secondAttribute="top" constant="18" id="SXa-ps-RtK"/>
-                                                <constraint firstItem="zjy-If-pR1" firstAttribute="leading" secondItem="Xmx-fv-NVz" secondAttribute="trailing" constant="20" id="U6r-iX-oV0"/>
                                                 <constraint firstItem="M3b-SA-ecr" firstAttribute="top" secondItem="zjy-If-pR1" secondAttribute="top" priority="1" constant="27" id="VTL-gH-cq7"/>
-                                                <constraint firstItem="Xmx-fv-NVz" firstAttribute="centerY" secondItem="Kmp-8a-a4r" secondAttribute="centerY" id="Wac-OZ-VOW"/>
+                                                <constraint firstItem="zjy-If-pR1" firstAttribute="leading" secondItem="M3b-SA-ecr" secondAttribute="trailing" constant="-9" id="a7O-uC-NgH"/>
                                                 <constraint firstItem="zjy-If-pR1" firstAttribute="top" secondItem="M3b-SA-ecr" secondAttribute="bottom" constant="5" id="bgB-l4-9cO"/>
+                                                <constraint firstItem="zjy-If-pR1" firstAttribute="leading" secondItem="FBx-Uv-VBM" secondAttribute="trailing" constant="20" id="dPC-sV-39l"/>
                                                 <constraint firstItem="XAA-CQ-NXK" firstAttribute="leading" secondItem="M3b-SA-ecr" secondAttribute="trailing" constant="8" id="dQO-Fs-afl"/>
                                                 <constraint firstItem="FBx-Uv-VBM" firstAttribute="centerY" secondItem="Kmp-8a-a4r" secondAttribute="centerY" id="hak-nO-fhe"/>
-                                                <constraint firstItem="M3b-SA-ecr" firstAttribute="leading" secondItem="Xmx-fv-NVz" secondAttribute="trailing" constant="20" id="jzX-VD-unc"/>
-                                                <constraint firstItem="Xmx-fv-NVz" firstAttribute="centerX" secondItem="Kmp-8a-a4r" secondAttribute="centerX" id="kTO-hl-f3y"/>
-                                                <constraint firstItem="Xmx-fv-NVz" firstAttribute="centerY" secondItem="Kmp-8a-a4r" secondAttribute="centerY" id="nda-HH-EEd"/>
                                                 <constraint firstItem="XAA-CQ-NXK" firstAttribute="top" secondItem="zjy-If-pR1" secondAttribute="bottom" constant="2" id="xcB-fl-Wy9"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
-                                                    <exclude reference="kTO-hl-f3y"/>
                                                     <exclude reference="bgB-l4-9cO"/>
                                                     <exclude reference="Jx4-Rt-JLh"/>
                                                     <exclude reference="CzN-Cs-5AG"/>
@@ -222,16 +209,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7QI-OO-N7m" userLabel="Back Button">
-                                <rect key="frame" x="15" y="20" width="34" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Back">
-                                    <color key="titleColor" red="0.066666666666666666" green="0.53725490196078429" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="backButtonTapped:" destination="DhS-S9-kd6" eventType="touchUpInside" id="Pfj-Xl-rai"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05e-hP-h0e">
                                 <rect key="frame" x="155" y="205" width="65" height="29"/>
                                 <animations/>
@@ -239,7 +216,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XT1-Wc-V0M" userLabel="Profile Picture">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sample Profile Picture" translatesAutoresizingMaskIntoConstraints="NO" id="XT1-Wc-V0M" userLabel="Profile Picture">
                                 <rect key="frame" x="137" y="90" width="100" height="100"/>
                                 <animations/>
                                 <constraints>
@@ -262,6 +239,20 @@
                                 <color key="textColor" red="0.43761427859042545" green="0.43761427859042545" blue="0.43761427859042545" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7QI-OO-N7m" userLabel="Back Button">
+                                <rect key="frame" x="15" y="30" width="58" height="22"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="58" id="0HG-hJ-uCS"/>
+                                    <constraint firstAttribute="height" constant="22" id="ygr-W0-tsJ"/>
+                                </constraints>
+                                <state key="normal" image="Back Button">
+                                    <color key="titleColor" red="0.24313725490196078" green="0.63529411764705879" blue="0.89411764705882357" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="DhS-S9-kd6" eventType="touchUpInside" id="Pfj-Xl-rai"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -273,14 +264,20 @@
                             <constraint firstItem="hkG-xT-JKd" firstAttribute="top" secondItem="e7i-RM-7IC" secondAttribute="bottom" constant="10" id="CeU-Xa-4Ln"/>
                             <constraint firstItem="XT1-Wc-V0M" firstAttribute="centerX" secondItem="WX6-EY-9ej" secondAttribute="centerX" id="Nid-iM-nmq"/>
                             <constraint firstItem="05e-hP-h0e" firstAttribute="top" secondItem="XT1-Wc-V0M" secondAttribute="bottom" constant="15" id="OKg-1y-Y5r"/>
+                            <constraint firstItem="7QI-OO-N7m" firstAttribute="top" secondItem="6s8-Jy-NKN" secondAttribute="bottom" constant="10" id="QM0-wZ-GXP"/>
                             <constraint firstItem="7QI-OO-N7m" firstAttribute="leading" secondItem="WX6-EY-9ej" secondAttribute="leading" constant="15" id="RTL-YD-g9c"/>
-                            <constraint firstItem="7QI-OO-N7m" firstAttribute="top" secondItem="WX6-EY-9ej" secondAttribute="top" constant="20" id="Tm7-BV-a6k"/>
+                            <constraint firstItem="7QI-OO-N7m" firstAttribute="top" secondItem="WX6-EY-9ej" secondAttribute="top" constant="21" id="Tm7-BV-a6k"/>
                             <constraint firstItem="05e-hP-h0e" firstAttribute="centerX" secondItem="WX6-EY-9ej" secondAttribute="centerX" id="cwJ-jH-CKN"/>
+                            <constraint firstItem="7QI-OO-N7m" firstAttribute="top" secondItem="WX6-EY-9ej" secondAttribute="top" constant="21" id="hk5-d4-wXS"/>
+                            <constraint firstItem="7QI-OO-N7m" firstAttribute="leading" secondItem="WX6-EY-9ej" secondAttribute="leading" constant="15" id="kGX-5f-QNn"/>
                             <constraint firstItem="e7i-RM-7IC" firstAttribute="top" secondItem="05e-hP-h0e" secondAttribute="top" id="kkn-vx-azS"/>
                             <constraint firstItem="XT1-Wc-V0M" firstAttribute="top" secondItem="WX6-EY-9ej" secondAttribute="top" constant="90" id="kvF-S2-HEw"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="RTL-YD-g9c"/>
+                                <exclude reference="Tm7-BV-a6k"/>
+                                <exclude reference="hk5-d4-wXS"/>
                                 <exclude reference="CeU-Xa-4Ln"/>
                                 <exclude reference="kkn-vx-azS"/>
                             </mask>
@@ -300,12 +297,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Back Button" width="58" height="22"/>
         <image name="Base Button" width="70" height="70"/>
         <image name="Base Button - Active" width="70" height="70"/>
         <image name="Bottom Gradient" width="375" height="92"/>
         <image name="Indicator - Large - Red" width="12" height="12"/>
         <image name="Indicator - Red" width="9" height="9"/>
-        <image name="Profile Picture - Mask" width="54" height="54"/>
+        <image name="Sample Profile Picture" width="109" height="100"/>
         <image name="Search Icon" width="31" height="32"/>
         <image name="Top Gradient" width="373" height="92"/>
     </resources>
