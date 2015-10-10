@@ -20,6 +20,7 @@ class UserViewController: UIViewController
     
     var name: String?
     var status: String?
+    var image: UIImage?
     
     // MARK: - Methods
     
@@ -32,6 +33,7 @@ class UserViewController: UIViewController
         // label setup source view controller
         self.nameLabel.text = name!
         self.statusMessageLabel.text = status!
+        self.profilePicture.image = image!
     }
     
     func setup()

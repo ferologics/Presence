@@ -24,6 +24,7 @@ class MainViewController: UIViewController
     
     var selectedCellName: String?
     var selectedCellStatus: String?
+    var selectedCellImage: UIImage?
 
     var users: [PFUser] = []
     
@@ -100,6 +101,7 @@ class MainViewController: UIViewController
         let nextViewController = segue.destinationViewController as! UserViewController
         nextViewController.name = selectedCellName!
         nextViewController.status = selectedCellStatus!
+        nextViewController.image = selectedCellImage!
         
     }
     
@@ -244,7 +246,7 @@ extension MainViewController: UITableViewDataSource
         let userProfilePic = ParseHelper.requestUserProfilePicture(user)
         if let userProfilePic = userProfilePic
         {
-            cell.imageView?.image = userProfilePic
+            cell.profilePicture.image = userProfilePic
         }
         
         return cell
@@ -270,6 +272,7 @@ extension MainViewController: UITableViewDelegate
         let cell =  usersTableView.cellForRowAtIndexPath(indexPath) as! UserTableViewCell
         selectedCellName = cell.nameLabel.text
         selectedCellStatus = cell.statusLabel.text
+        selectedCellImage = cell.profilePicture.image
         
         performSegueWithIdentifier("UserViewControllerSegue", sender: self)
     }

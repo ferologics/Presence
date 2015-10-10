@@ -8,6 +8,7 @@
 
 import Foundation
 import Parse
+import FBSDKCoreKit
 
 
 class ParseHelper
@@ -47,10 +48,16 @@ class ParseHelper
     
     static func requestUserProfilePicture(user: PFUser) -> UIImage?
     {
-        let userPicLink = user.valueForKey("picture") as? String
-
-
+        let path = user.valueForKey("picture") as! String
         
+        if let url = NSURL(string: path)
+        {
+            if let data = NSData(contentsOfURL: url)
+            {
+                let image = UIImage(data: data)
+                return image
+            }
+        }
 
         return nil
     }
