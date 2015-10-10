@@ -131,23 +131,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate
             switch region.identifier
             {
             case "Blueberry":
-                user["locaiton"] = "Upstairs"
+                user["status"] = "Upstairs"
                 notification.alertBody = "You entered Upstairs!"
                 
             case "Mint":
-                user["locaiton"] = "Staff area"
+                user["status"] = "Staff area"
                 notification.alertBody = "You entered Staff area!"
                 
             case "Icy1":
-                user["locaiton"] = "Downstairs"
+                user["status"] = "Downstairs"
                 notification.alertBody = "You entered Downstairs!"
                 
             case "Icy2":
-                user["locaiton"] = "Main room"
+                user["status"] = "Main room"
                 notification.alertBody = "You entered Main room!"
                 
             default:
-                user["locaiton"] = ""
+                user["status"] = "Outside"
                 notification.alertBody = "Error identifying beacon"
             }
             

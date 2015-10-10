@@ -53,9 +53,7 @@ class UserViewController: UIViewController
     
     @IBAction func backButtonTapped(sender: UIButton)
     {
-        
         dismissViewControllerAnimated(true, completion: nil)
-        
     }
 
 }

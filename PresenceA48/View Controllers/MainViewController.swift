@@ -96,13 +96,12 @@ class MainViewController: UIViewController
 
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
         let nextViewController = segue.destinationViewController as! UserViewController
         nextViewController.name = selectedCellName!
         nextViewController.status = selectedCellStatus!
         nextViewController.image = selectedCellImage!
-        
     }
     
     override func didReceiveMemoryWarning() { super.didReceiveMemoryWarning() }
